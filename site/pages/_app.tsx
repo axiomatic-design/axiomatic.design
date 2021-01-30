@@ -1,17 +1,20 @@
 import Head from 'next/head';
-import Link from 'next/link';
+import { useRouter } from 'next/router';
+import { theme, ThemeProvider, GlobalStyle } from '@axiomatic/react-components';
+import { Header, Footer } from '../components';
 
 function App({ Component, pageProps }) {
   return (
-    <>
+    <ThemeProvider theme={theme}>
+      <GlobalStyle />
       <Head>
         <title>Axiomatic Design Systems</title>
         <link rel="icon" href="/axiomatic-favicon.png" />
       </Head>
-      <Link href="/">Homie</Link>
-      <Link href="/articles">All Articles</Link>
+      <Header starCount="1,224" />
       <Component {...pageProps} />
-    </>
+      <Footer />
+    </ThemeProvider>
   );
 }
 
